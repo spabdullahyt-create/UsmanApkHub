@@ -1,51 +1,154 @@
-body {
-  background: #f7f7f7;
-  font-family: Arial;
+:root {
+  --bg: #f4f6fb;
+  --panel: rgba(255,255,255,0.7);
+  --panel-border: rgba(0,0,0,0.06);
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent-from: #4f9cff;
+  --accent-to: #7b61ff;
+  --glass-blur: 10px;
+  --shadow: 0 10px 40px rgba(6,12,34,0.06);
+  --transition: .25s;
+}
+
+body.dark {
+  --bg: #0a0f17;
+  --panel: rgba(20,28,42,0.62);
+  --panel-border: rgba(255,255,255,0.04);
+  --card: #0f1a26;
+  --muted: #a7b0c0;
+  --text: #e6eef6;
+  --shadow: 0 14px 50px rgba(2,6,23,0.6);
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
+
+/* Header */
 .header {
-  background: black;
-  padding: 20px;
-  text-align: center;
-  color: white;
-}
-
-.app-list {
-  padding: 20px;
-}
-
-.app-card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
-
-button {
-  background: black;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-.popup {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%;
+  background: var(--panel);
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--panel-border);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+/* Theme button */
+.theme-toggle {
+  padding: 10px;
+  background: linear-gradient(45deg, var(--accent-from), var(--accent-to));
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Search bar */
+.search-box input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Main layout */
+.app {
+  margin-top: 90px;
+  padding: 20px;
+}
+
+/* App grid cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+/* Buttons */
+.download-btn {
+  margin-top: 10px;
+  background: linear-gradient(45deg, var(--accent-from), var(--accent-to));
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+
+/* Modal */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0,0,0,0.6);
   display: none;
-  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
 }
 
-.popup-content {
-  background: white;
-  width: 300px;
-  margin: 100px auto;
-  padding: 20px;
-  border-radius: 10px;
+.modal {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  width: 350px;
   text-align: center;
 }
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+}
+
+.modal button {
+  width: 100%;
+  background: linear-gradient(45deg, var(--accent-from), var(--accent-to));
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  }
