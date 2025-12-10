@@ -34,18 +34,21 @@ body.dark{
 *{box-sizing:border-box;}
 html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;-webkit-font-smoothing:antialiased;}
 body{background:var(--bg);color:var(--text);transition:background var(--transition-mid), color var(--transition-mid);}
-.app-wrap{display:flex;min-height:100vh;overflow-x:hidden;padding-top:72px;}
+.app-wrap{display:flex;min-height:100vh;overflow-x:hidden;padding-top:72px;} 
+
 header.topbar{position:fixed; top:0; left:0; right:0; height:72px; display:flex; align-items:center; gap:12px;padding:0 18px; background:transparent; z-index:100;}
 .top-left{display:flex;align-items:center;gap:12px}
 .hambtn{width:46px;height:46px;border-radius:10px;border:0;background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);transition:transform var(--transition-fast)}
 .hambtn:active{transform:scale(.98)}
 .brand{font-weight:800;font-size:18px;display:flex;gap:8px;align-items:center;background:linear-gradient(90deg,var(--accent-from),var(--accent-to));padding:8px 12px;border-radius:12px;color:white;box-shadow:var(--shadow);}
 .brand i{background:rgba(255,255,255,0.2);padding:6px;border-radius:8px;color:white}
+
 .btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent-from),var(--accent-to));cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:white;font-weight:800;box-shadow:var(--shadow);transition:transform var(--transition-fast)}
 .btn:active{transform:scale(.98)}
 .theme-btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent-from),var(--accent-to));color:white;border:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:transform var(--transition-fast);}
 .theme-btn i{font-size:18px;}
 .theme-btn:active{transform:scale(.98);}
+
 .sidebar-drawer{position:fixed;left:20px;top:86px;width:var(--sidebar-width);max-width:calc(100% - 40px);height:calc(100vh - 106px);border-radius:14px;padding:16px;background:var(--panel);backdrop-filter: blur(var(--glass-blur));border:1px solid var(--panel-border);box-shadow:var(--shadow);transform:translateX(-140%);transition:transform var(--transition-mid);z-index:90;overflow:auto}
 .sidebar-drawer.open{transform:translateX(0)}
 .sidebar-drawer .brand-small{display:flex;align-items:center;gap:10px;font-weight:800;margin-bottom:10px}
@@ -56,7 +59,9 @@ header.topbar{position:fixed; top:0; left:0; right:0; height:72px; display:flex;
 .sidebar-categories{display:flex;flex-direction:column;gap:6px;margin-top:12px}
 .sidebar-categories a{padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,#fff,#f0f0f0);text-decoration:none;color:var(--text);font-weight:700;text-align:center;display:block;}
 .sidebar-categories a.active{background:linear-gradient(90deg,var(--accent-from),var(--accent-to));color:white;}
+
 main.main{flex:1;padding:20px 28px 60px 28px; margin-left:0; transition:margin var(--transition-mid); z-index:1}
+
 .latest-segment {background: var(--card);border-radius:16px;padding:20px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;margin-bottom:18px;z-index:1;}
 .latest-segment-top {display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .pill-search{display:flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:var(--card);border:1px solid var(--panel-border);box-shadow:0 6px 18px rgba(0,0,0,0.08);width:100%;max-width:480px;}
@@ -77,6 +82,7 @@ main.main{flex:1;padding:20px 28px 60px 28px; margin-left:0; transition:margin v
 .subtitle{color:var(--muted);font-size:13px;margin-top:6px}
 .card-bottom{display:flex;align-items:center;justify-content:space-between;padding:12px;border-top:1px solid var(--panel-border);background:rgba(0,0,0,0.01)}
 .download-btn{padding:10px 14px;border-radius:10px;border:0;color:white;background:linear-gradient(90deg,var(--accent-from),var(--accent-to));font-weight:800;cursor:pointer}
+
 .footer{margin-top:20px;color:var(--muted);text-align:center;font-size:13px}
 .sticky-footer{position: fixed;bottom: 0;left: 0;right: 0;background: var(--card);border-top: 1px solid var(--panel-border);text-align: center;padding: 12px 0;font-weight: 700;z-index: 200;box-shadow: 0 -4px 20px rgba(0,0,0,0.06);}
 .sticky-footer a{color: var(--text);text-decoration:none}
@@ -171,17 +177,22 @@ main.main{flex:1;padding:20px 28px 60px 28px; margin-left:0; transition:margin v
 </div>
 
 <script>
-// Full JS merged (apps array, renderGrid, key modal, theme toggle, download selected)
+// Apps array
 const apps = [
   { id: "app1", title: "WhatsApp Hack", category: "App", version: "1.0", size: "50 MB", is_new: true, is_mod: true, icon: "https://i.ibb.co/b5qjwDDD/86372.jpg", apk_link: "https://www.mediafire.com/file/8eqvtqfki06gdpo/WhatsApp_Hack.apk/file" },
-  { id: "app2", title: "TikTok Hack", category: "App", version: "2.5", size: "45 MB", is_new: true, is_mod: true, icon: "https://i.ibb.co/FkNpMdWd/86316.jpg", apk_link: "#" },
-  { id: "app3", title: "Instagram Hack", category: "Hack", version: "3.0", size: "30 MB", is_new: true, is_mod: true, icon: "https://i.ibb.co/k6HSfsVr/86318.jpg", apk_link: "#" },
-  { id: "app4", title: "Facebook Hack", category: "App", version: "2.5", size: "60 MB", is_new: true, is_mod: true, icon: "https://i.ibb.co/20Z0WgFv/86371.jpg", apk_link: "#" }
+  { id: "app2", title: "TikTok Hack", category: "App", version: "2.5", size: "45 MB", is_new: true, is_mod: true, icon: "https://i.ibb.co/FkNpMdWd/86316.jpg", apk_link: "https://www.example.com/tiktok.apk" }
+  // Add more apps here
 ];
+
+// Selected apps
 let selectedCheckboxes = new Set();
 let selectedDownloadId = null;
+
+// Helper
 function $all(sel){ return Array.from(document.querySelectorAll(sel)); }
 function escapeHtml(s){ if(!s) return ''; return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+// Render grid
 function renderGrid(filter=''){
   const q = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
   const grid = document.getElementById('grid'); grid.innerHTML = '';
@@ -230,9 +241,9 @@ function renderGrid(filter=''){
   });
 }
 
-// Sidebar category filtering
+// Sidebar category filter
 document.querySelectorAll('.sidebar-categories a').forEach(a=>{
-  a.addEventListener('click', e=>{
+  a.addEventListener('click', (e)=>{
     e.preventDefault();
     const cat = a.dataset.cat || '';
     document.querySelectorAll('.sidebar-categories a').forEach(x=>x.classList.remove('active'));
@@ -253,21 +264,36 @@ function openKeyModal(appId){
 }
 function closeOverlay(){ document.getElementById('overlay').style.display = 'none'; }
 
+// Multi-user key system
+let validKeys = {
+  "Usman183": false,  // false = not used
+  "User002": false,   // add new user keys here
+  "User003": false
+};
+
+function verifyKey(key) {
+  if (validKeys[key] === false) {
+    validKeys[key] = true; // mark used
+    return true;
+  }
+  return false;
+}
+
 // Verify & download
 document.getElementById('verifyKey').addEventListener('click', ()=>{
   const key = document.getElementById('userKey').value.trim();
-  if(key === 'Usman183'){
+  if(verifyKey(key)){
     const app = apps.find(a => a.id === selectedDownloadId);
     if(app && app.apk_link) window.location.href = app.apk_link;
     closeOverlay();
-  } else alert('Invalid key!');
+  } else alert('Invalid or already used key!');
 });
 
 // Download selected apps
 document.getElementById('downloadSelected').addEventListener('click', ()=>{
   if(selectedCheckboxes.size===0){ alert('Select at least one app.'); return; }
   const key = prompt('Enter download key for selected apps:');
-  if(key!=='Usman183'){ alert('Invalid key!'); return; }
+  if(!verifyKey(key)){ alert('Invalid or already used key!'); return; }
   selectedCheckboxes.forEach(id => {
     const app = apps.find(a => a.id === id);
     if(app && app.apk_link) window.open(app.apk_link, '_blank');
@@ -304,7 +330,7 @@ document.querySelectorAll('#nav a').forEach(a=>{
 // Search input
 document.getElementById('searchInput').addEventListener('input', () => renderGrid());
 
-// Initial grid render
+// Initial setup
 renderGrid();
 </script>
 </body>
