@@ -4,10 +4,10 @@
 
 // Add unlimited keys here:
 let validKeys = {
-  "Usman183": false,
-  "User001": false,
-  "User002": false,
-  "User003": false,
+  "Usman786": true,
+  "User001": true,
+  "User002": true,
+  "User003": true,
   "VIPKEY999": false
 };
 
